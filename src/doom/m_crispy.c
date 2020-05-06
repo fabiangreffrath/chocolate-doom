@@ -144,26 +144,74 @@ extern void I_ReInitGraphics (int reinit);
 
 void M_CrispyToggleAutomapstats(int choice)
 {
-    choice = 0;
-    crispy->automapstats = (crispy->automapstats + 1) % NUM_WIDGETS;
+    switch(choice)
+    {
+        case 0:
+        crispy->automapstats--;
+        if (crispy->automapstats < 0)
+            crispy->automapstats = NUM_WIDGETS-1;
+        break;
+
+        case 1:
+        crispy->automapstats++;
+        if (crispy->automapstats > NUM_WIDGETS-1)
+            crispy->automapstats = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleBobfactor(int choice)
 {
-    choice = 0;
-    crispy->bobfactor = (crispy->bobfactor + 1) % NUM_BOBFACTORS;
+    switch(choice)
+    {
+        case 0:
+        crispy->bobfactor--;
+        if (crispy->bobfactor < 0)
+            crispy->bobfactor = NUM_BOBFACTORS-1;
+        break;
+
+        case 1:
+        crispy->bobfactor++;
+        if (crispy->bobfactor > NUM_BOBFACTORS-1)
+            crispy->bobfactor = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleBrightmaps(int choice)
 {
-    choice = 0;
-    crispy->brightmaps = (crispy->brightmaps + 1) % NUM_BRIGHTMAPS;
+    switch(choice)
+    {
+        case 0:
+        crispy->brightmaps--;
+        if (crispy->brightmaps < 0)
+            crispy->brightmaps = NUM_BRIGHTMAPS-1;
+        break;
+
+        case 1:
+        crispy->brightmaps++;
+        if (crispy->brightmaps > NUM_BRIGHTMAPS-1)
+            crispy->brightmaps = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleCenterweapon(int choice)
 {
-    choice = 0;
-    crispy->centerweapon = (crispy->centerweapon + 1) % NUM_CENTERWEAPON;
+    switch(choice)
+    {
+        case 0:
+        crispy->centerweapon--;
+        if (crispy->centerweapon < 0)
+            crispy->centerweapon = NUM_CENTERWEAPON-1;
+        break;
+
+        case 1:
+        crispy->centerweapon++;
+        if (crispy->centerweapon > NUM_CENTERWEAPON-1)
+            crispy->centerweapon = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleColoredblood(int choice)
@@ -202,14 +250,38 @@ void M_CrispyToggleColoredblood(int choice)
 
 void M_CrispyToggleColoredhud(int choice)
 {
-    choice = 0;
-    crispy->coloredhud = (crispy->coloredhud + 1) % NUM_COLOREDHUD;
+    switch(choice)
+    {
+        case 0:
+        crispy->coloredhud--;
+        if (crispy->coloredhud < 0)
+            crispy->coloredhud = NUM_COLOREDHUD-1;
+        break;
+
+        case 1:
+        crispy->coloredhud++;
+        if (crispy->coloredhud > NUM_COLOREDHUD-1)
+            crispy->coloredhud = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleCrosshair(int choice)
 {
-    choice = 0;
-    crispy->crosshair = (crispy->crosshair + 1) % NUM_CROSSHAIRS;
+    switch(choice)
+    {
+        case 0:
+        crispy->crosshair--;
+        if (crispy->crosshair < 0)
+            crispy->crosshair = NUM_CROSSHAIRS-1;
+        break;
+
+        case 1:
+        crispy->crosshair++;
+        if (crispy->crosshair > NUM_CROSSHAIRS-1)
+            crispy->crosshair = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleCrosshairHealth(int choice)
@@ -231,8 +303,20 @@ void M_CrispyToggleCrosshairtype(int choice)
 	return;
     }
 
-    choice = 0;
-    crispy->crosshairtype = crispy->crosshairtype + 1;
+    switch(choice)
+    {
+        case 0:
+        crispy->crosshairtype--;
+        if (crispy->crosshairtype < 0)
+            crispy->crosshairtype = 2;
+        break;
+
+        case 1:
+        crispy->crosshairtype++;
+        if (crispy->crosshairtype > 2)
+            crispy->crosshairtype = 0;
+        break;
+    }
 
     if (!laserpatch[crispy->crosshairtype].c)
     {
@@ -248,8 +332,20 @@ void M_CrispyToggleDemoBar(int choice)
 
 void M_CrispyToggleDemoTimer(int choice)
 {
-    choice = 0;
-    crispy->demotimer = (crispy->demotimer + 1) % NUM_DEMOTIMERS;
+    switch(choice)
+    {
+        case 0:
+        crispy->demotimer--;
+        if (crispy->demotimer < 0)
+            crispy->demotimer = NUM_DEMOTIMERS-1;
+        break;
+
+        case 1:
+        crispy->demotimer++;
+        if (crispy->demotimer > NUM_DEMOTIMERS-1)
+            crispy->demotimer = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleDemoTimerDir(int choice)
@@ -293,8 +389,20 @@ void M_CrispyToggleFreeaim(int choice)
 	return;
     }
 
-    choice = 0;
-    crispy->freeaim = (crispy->freeaim + 1) % NUM_FREEAIMS;
+    switch(choice)
+    {
+        case 0:
+        crispy->freeaim--;
+        if (crispy->freeaim < 0)
+            crispy->freeaim = NUM_FREEAIMS-1;
+        break;
+
+        case 1:
+        crispy->freeaim++;
+        if (crispy->freeaim > NUM_FREEAIMS-1)
+            crispy->freeaim = 0;
+        break;
+    }
 
     // [crispy] update the "critical" struct
     CheckCrispySingleplayer(!demorecording && !demoplayback && !netgame);
@@ -308,8 +416,20 @@ static void M_CrispyToggleSkyHook (void)
 
 void M_CrispyToggleFreelook(int choice)
 {
-    choice = 0;
-    crispy->freelook = (crispy->freelook + 1) % NUM_FREELOOKS;
+    switch(choice)
+    {
+        case 0:
+        crispy->freelook--;
+        if (crispy->freelook < 0)
+            crispy->freelook = NUM_FREELOOKS-1;
+        break;
+
+        case 1:
+        crispy->freelook++;
+        if (crispy->freelook > NUM_FREELOOKS-1)
+            crispy->freelook = 0;
+        break;
+    }
 
     crispy->post_rendering_hook = M_CrispyToggleSkyHook;
 }
@@ -361,8 +481,20 @@ void M_CrispyToggleJumping(int choice)
 	return;
     }
 
-    choice = 0;
-    crispy->jump = (crispy->jump + 1) % NUM_JUMPS;
+    switch(choice)
+    {
+        case 0:
+        crispy->jump--;
+        if (crispy->jump < 0)
+            crispy->jump = NUM_JUMPS-1;
+        break;
+
+        case 1:
+        crispy->jump++;
+        if (crispy->jump > NUM_JUMPS-1)
+            crispy->jump = 0;
+        break;
+    }
 
     // [crispy] update the "critical" struct
     CheckCrispySingleplayer(!demorecording && !demoplayback && !netgame);
@@ -370,8 +502,20 @@ void M_CrispyToggleJumping(int choice)
 
 void M_CrispyToggleLeveltime(int choice)
 {
-    choice = 0;
-    crispy->leveltime = (crispy->leveltime + 1) % NUM_WIDGETS;
+    switch(choice)
+    {
+        case 0:
+        crispy->leveltime--;
+        if (crispy->leveltime < 0)
+            crispy->leveltime = NUM_WIDGETS-1;
+        break;
+
+        case 1:
+        crispy->leveltime++;
+        if (crispy->leveltime > NUM_WIDGETS-1)
+            crispy->leveltime = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleMouseLook(int choice)
@@ -412,8 +556,20 @@ void M_CrispyTogglePitch(int choice)
 
 void M_CrispyTogglePlayerCoords(int choice)
 {
-    choice = 0;
-    crispy->playercoords = (crispy->playercoords + 1) % (NUM_WIDGETS - 1); // [crispy] disable "always" setting
+    switch(choice)
+    {
+        case 0:
+        crispy->playercoords--;
+        if (crispy->playercoords < 0)
+            crispy->playercoords = NUM_WIDGETS-2; // [crispy] disable "always" setting
+        break;
+
+        case 1:
+        crispy->playercoords++;
+        if (crispy->playercoords > NUM_WIDGETS-2) // [crispy] disable "always" setting
+            crispy->playercoords = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleRecoil(int choice)
@@ -432,8 +588,20 @@ void M_CrispyToggleRecoil(int choice)
 
 void M_CrispyToggleSecretmessage(int choice)
 {
-    choice = 0;
-    crispy->secretmessage = (crispy->secretmessage + 1) % NUM_SECRETMESSAGE;
+    switch(choice)
+    {
+        case 0:
+        crispy->secretmessage--;
+        if (crispy->secretmessage < 0)
+            crispy->secretmessage = NUM_SECRETMESSAGE-1;
+        break;
+
+        case 1:
+        crispy->secretmessage++;
+        if (crispy->secretmessage > NUM_SECRETMESSAGE-1)
+            crispy->secretmessage = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleSmoothScaling(int choice)
@@ -484,8 +652,20 @@ void M_CrispyToggleSoundMono(int choice)
 
 void M_CrispyToggleTranslucency(int choice)
 {
-    choice = 0;
-    crispy->translucency = (crispy->translucency + 1) % NUM_TRANSLUCENCY;
+    switch(choice)
+    {
+        case 0:
+        crispy->translucency--;
+        if (crispy->translucency < 0)
+            crispy->translucency = NUM_TRANSLUCENCY-1;
+        break;
+
+        case 1:
+        crispy->translucency++;
+        if (crispy->translucency > NUM_TRANSLUCENCY-1)
+            crispy->translucency = 0;
+        break;
+    }
 }
 
 void M_CrispyToggleUncapped(int choice)
