@@ -62,6 +62,8 @@ void S_UnlinkSound(mobj_t *origin);
 // Start music using <music_id> from sounds.h
 void S_StartMusic(int music_id);
 
+void S_PlayMusicLump(char *lumpname);
+
 // Start music using <music_id> from sounds.h,
 //  and set whether looping
 void S_ChangeMusic(int music_id, int looping);
